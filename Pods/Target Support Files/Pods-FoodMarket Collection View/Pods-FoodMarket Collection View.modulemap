@@ -1,0 +1,6 @@
+framework module Pods_FoodMarket_Collection_View {
+  umbrella header "Pods-FoodMarket Collection View-umbrella.h"
+
+  export *
+  module * { export * }
+}

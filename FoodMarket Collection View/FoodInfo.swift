@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct FoodInfo{
+    var image: String
+    var foodName: String
+    var foodPrice: String
+}
