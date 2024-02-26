@@ -10,19 +10,17 @@ import SnapKit
 class ViewController: UIViewController {
 
     private var foodInfoArray: [FoodInfo] = [
-//        FoodInfo(image: "square.and.arrow.up", foodName: "Mr.Cheezy", foodPrice: "$5.49"),
-//        FoodInfo(image: "fries", foodName: "Fries M", foodPrice: "$3.29"),
-//        FoodInfo(image: "vanila", foodName: "Vanilla Ice", foodPrice: "$6.99"),
-//        FoodInfo(image: "coffee", foodName: "Americano L", foodPrice: "$1.99"),
-//        FoodInfo(image: "burger", foodName: "Mr.Cheezy", foodPrice: "$5.49"),
-//        FoodInfo(image: "fries", foodName: "Fries M", foodPrice: "$3.29"),
-//        FoodInfo(image: "vanila", foodName: "Vanilla Ice", foodPrice: "$6.99"),
-//        FoodInfo(image: "coffee", foodName: "Americano L", foodPrice: "$1.99"),
-//        FoodInfo(image: "burger", foodName: "Mr.Cheezy", foodPrice: "$5.49"),
-//        FoodInfo(image: "fries", foodName: "Fries M", foodPrice: "$3.29")]
-        
-              FoodInfo(image: "square.and.arrow.up", foodName: "Mr.Cheezy", foodPrice: "$5.49")
-    ]
+        FoodInfo(image: "burger", foodName: "Mr.Cheezy", foodPrice: "$5.49"),
+        FoodInfo(image: "fries", foodName: "Fries M", foodPrice: "$3.29"),
+        FoodInfo(image: "vanila", foodName: "Vanilla Ice", foodPrice: "$6.99"),
+        FoodInfo(image: "coffee", foodName: "Americano L", foodPrice: "$1.99"),
+        FoodInfo(image: "burger", foodName: "Mr.Cheezy", foodPrice: "$5.49"),
+        FoodInfo(image: "fries", foodName: "Fries M", foodPrice: "$3.29"),
+        FoodInfo(image: "vanila", foodName: "Vanilla Ice", foodPrice: "$6.99"),
+        FoodInfo(image: "coffee", foodName: "Americano L", foodPrice: "$1.99"),
+        FoodInfo(image: "burger", foodName: "Mr.Cheezy", foodPrice: "$5.49"),
+        FoodInfo(image: "fries", foodName: "Fries M", foodPrice: "$3.29")]
+
     
     private lazy var myCartView: UIView = {
         MyCartUiView()
@@ -31,9 +29,10 @@ class ViewController: UIViewController {
     private lazy var foodScrollCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let view = UICollectionView(frame: .zero, collectionViewLayout:layout )
-        layout.itemSize = CGSize(width: 400, height: 100)
-        layout.minimumLineSpacing = 50
+        layout.itemSize = CGSize(width: 350, height: 100)
+        layout.minimumLineSpacing = 30
         view.register(FoodAssortyCell.self, forCellWithReuseIdentifier: "cell")
+        view.backgroundColor = .red
         view.dataSource = self
         return view
     }()
@@ -77,7 +76,9 @@ extension ViewController: UICollectionViewDataSource{
             return UICollectionViewCell()
         }
         cell.configureFoodInfo(with: foodInfoArray[indexPath.item])
-//        cell.backgroundColor = .red
+        cell.backgroundColor = .systemPink
+        cell.layer.cornerRadius = 20
+        
         return cell
     }
     

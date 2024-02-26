@@ -73,7 +73,9 @@ class MyCartUiView: UIView{
         let button = UIButton()
         button.setTitle("Clear All", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 30, weight: .medium)
+        button.addTarget(self, action: #selector(clear), for: .touchUpInside)
         button.setTitleColor(.black, for: .normal)
+
         return button
     }()
  
@@ -133,16 +135,19 @@ class MyCartUiView: UIView{
         orderLabel.snp.makeConstraints({make in
             make.top.equalTo(firstStepButton.snp.bottom).offset(70)
             make.left.equalToSuperview().offset(20)
-            make.width.equalToSuperview().offset(250)
         })
         addSubview(clearAllButton)
         clearAllButton.snp.makeConstraints({make in
             make.top.equalTo(firstStepButton.snp.bottom).offset(70)
             make.right.equalToSuperview().offset(-20)
+         
         })
 
         
 
+    }
+    @objc func clear(){
+        print("work")
     }
     
 }
